@@ -2,7 +2,7 @@
  * Máscaras BR: a lógica das máscaras, sem DOM.
  *
  * Padrões personalizados usam os símbolos:
- *   9  dígito        A  letra (A–Z)        *  letra ou dígito        \  escapa o próximo caractere
+ *   9  dígito        A  letra (A-Z)        *  letra ou dígito        \  escapa o próximo caractere
  * Qualquer outro caractere é fixo (separador).
  */
 
@@ -24,7 +24,7 @@ const AMEX_CARD = '9999 999999 99999';
 
 const PATTERN_MASKS = {
   cpf: { pattern: CPF, hints: { inputmode: 'numeric' } },
-  // CNPJ alfanumérico: as 12 primeiras posições aceitam A–Z e 0–9; os 2 dígitos verificadores são números.
+  // CNPJ alfanumérico: as 12 primeiras posições aceitam A-Z e 0-9; os 2 dígitos verificadores são números.
   cnpj: { pattern: CNPJ, uppercase: true, hints: { inputmode: 'text', autocapitalize: 'characters' } },
   cpfcnpj: {
     patterns: [CPF, CNPJ],

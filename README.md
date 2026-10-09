@@ -1,4 +1,4 @@
-# Máscaras BR — máscaras de input para formulários brasileiros (JavaScript)
+# Máscaras BR: máscaras de input para formulários brasileiros (JavaScript)
 
 Biblioteca sem dependências com as máscaras que todo formulário brasileiro precisa: CPF, CNPJ (inclusive o novo CNPJ alfanumérico), CEP, telefone, data, hora, placa, cartão, moeda e porcentagem. O cursor fica no lugar certo quando a pessoa digita no meio, apaga um separador ou cola um texto. As funções de formatação são puras e funcionam também no Node.js.
 
@@ -123,4 +123,4 @@ Issues e pull requests são bem-vindos.
 
 ## Licença
 
-MIT — veja [LICENSE](LICENSE).
+MIT. Veja [LICENSE](LICENSE).
