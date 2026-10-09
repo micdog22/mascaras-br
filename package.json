@@ -1,0 +1,37 @@
+{
+  "name": "mascaras-br",
+  "version": "1.0.0",
+  "description": "Máscaras de input para formulários brasileiros: CPF, CNPJ alfanumérico, CEP, telefone, placa, cartão, moeda e mais, sem dependências.",
+  "type": "module",
+  "main": "./src/index.js",
+  "exports": {
+    ".": "./src/index.js"
+  },
+  "files": [
+    "src"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": [
+    "mascara",
+    "input-mask",
+    "cpf",
+    "cnpj",
+    "cep",
+    "telefone",
+    "moeda",
+    "formulario",
+    "brasil",
+    "pt-br"
+  ],
+  "scripts": {
+    "test": "node --test"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/micdog22/mascaras-br.git"
+  },
+  "homepage": "https://micdog22.github.io/mascaras-br/"
+}

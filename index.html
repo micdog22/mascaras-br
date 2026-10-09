@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Máscaras BR — máscaras de input para formulários brasileiros</title>
+  <meta name="description" content="Máscaras de input sem dependências para CPF, CNPJ alfanumérico, CEP, telefone, data, hora, placa, cartão, moeda e porcentagem.">
+  <meta name="theme-color" content="#b93c0a">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎭</text></svg>">
+  <link rel="stylesheet" href="./styles.css">
+  <script type="module" src="./demo.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <h1>Máscaras BR</h1>
+    <p class="lead">Máscaras de input para formulários brasileiros, sem dependências. Digite, apague e cole nos campos abaixo.</p>
+  </header>
+
+  <main>
+    <section class="card" aria-labelledby="fields-title">
+      <h2 id="fields-title">Experimente</h2>
+      <p class="muted">Embaixo de cada campo aparece o valor limpo, que é o que você salvaria no banco de dados.</p>
+      <form class="fields" id="fields" autocomplete="off" novalidate>
+        <div class="field">
+          <label for="field-cpf">CPF <code aria-hidden="true">cpf</code></label>
+          <input id="field-cpf" data-mascara="cpf" placeholder="000.000.000-00" value="12345678909">
+          <p class="raw">Valor limpo: <output for="field-cpf"></output></p>
+        </div>
+        <div class="field">
+          <label for="field-cnpj">CNPJ, também alfanumérico <code aria-hidden="true">cnpj</code></label>
+          <input id="field-cnpj" data-mascara="cnpj" placeholder="00.000.000/0000-00" value="12abc34501de35">
+          <p class="raw">Valor limpo: <output for="field-cnpj"></output></p>
+        </div>
+        <div class="field">
+          <label for="field-document">CPF ou CNPJ <code aria-hidden="true">cpfCnpj</code></label>
+          <input id="field-document" data-mascara="cpfCnpj" placeholder="CPF ou CNPJ">
+          <p class="raw">Valor limpo: <output for="field-document"></output></p>
+        </div>
+        <div class="field">
+          <label for="field-cep">CEP <code aria-hidden="true">cep</code></label>
+          <input id="field-cep" data-mascara="cep" placeholder="00000-000" value="01001000">
+          <p class="raw">Valor limpo: <output for="field-cep"></output></p>
+        </div>
+        <div class="field">
+          <label for="field-phone">Telefone fixo ou celular <code aria-hidden="true">telefone</code></label>
+          <input id="field-phone" data-mascara="telefone" placeholder="(00) 00000-0000" value="19987654321">
+          <p class="raw">Valor limpo: <output for="field-phone"></output></p>
+        </div>
+        <div class="field">
+          <label for="field-date">Data <code aria-hidden="true">data</code></label>
+          <input id="field-date" data-mascara="data" placeholder="dd/mm/aaaa" value="15112026">
+          <p class="raw">Valor limpo: <output for="field-date"></output></p>
+        </div>
+        <div class="field">
+          <label for="field-time">Hora <code aria-hidden="true">hora</code></label>
+          <input id="field-time" data-mascara="hora" placeholder="00:00" value="1430">
+          <p class="raw">Valor limpo: <output for="field-time"></output></p>
+        </div>
+        <div class="field">
+          <label for="field-plate">Placa antiga ou Mercosul <code aria-hidden="true">placa</code></label>
+          <input id="field-plate" data-mascara="placa" placeholder="ABC-1234 ou ABC1D23" value="bra2e19">
+          <p class="raw">Valor limpo: <output for="field-plate"></output></p>
+        </div>
+        <div class="field">
+          <label for="field-card">Cartão de crédito <code aria-hidden="true">cartao</code></label>
+          <input id="field-card" data-mascara="cartao" placeholder="0000 0000 0000 0000" value="4111111111111111">
+          <p class="raw">Valor limpo: <output for="field-card"></output></p>
+        </div>
+        <div class="field">
+          <label for="field-money">Valor em reais, aceita negativo <code aria-hidden="true">moeda</code></label>
+          <input id="field-money" data-mascara="moeda" data-negativo placeholder="R$ 0,00" value="123456">
+          <p class="raw">Valor limpo: <output for="field-money"></output></p>
+        </div>
+        <div class="field">
+          <label for="field-percent">Porcentagem <code aria-hidden="true">porcentagem</code></label>
+          <input id="field-percent" data-mascara="porcentagem" placeholder="0,00%" value="1250">
+          <p class="raw">Valor limpo: <output for="field-percent"></output></p>
+        </div>
+        <div class="field">
+          <label for="field-custom">Padrão personalizado</label>
+          <input id="field-custom" aria-describedby="pattern-hint" spellcheck="false">
+          <p class="raw">Valor limpo: <output for="field-custom"></output></p>
+        </div>
+      </form>
+
+      <div class="custom">
+        <label for="pattern">Escreva o padrão do campo personalizado</label>
+        <input id="pattern" value="AAA-9999-**" spellcheck="false" autocomplete="off" aria-describedby="pattern-hint">
+        <p id="pattern-hint" class="hint"><code>9</code> dígito, <code>A</code> letra, <code>*</code> letra ou dígito, <code>\</code> antes de um símbolo para usá-lo como texto fixo. O resto vira separador.</p>
+        <p id="pattern-error" class="error" aria-live="polite"></p>
+      </div>
+    </section>
+
+    <section class="card" aria-labelledby="usage-title">
+      <h2 id="usage-title">Use no seu projeto</h2>
+      <p>Coloque o atributo <code>data-mascara</code> nos campos e chame <code>iniciarMascaras()</code>:</p>
+      <pre><code>&lt;input data-mascara="cpf"&gt;
+&lt;input data-mascara="moeda" data-negativo&gt;
+&lt;input data-mascara="AAA-9999"&gt;
+
+&lt;script type="module"&gt;
+  import { iniciarMascaras } from './mascaras-br/src/index.js';
+  iniciarMascaras();
+&lt;/script&gt;</code></pre>
+      <p>Ou use as funções puras, no navegador ou no Node.js:</p>
+      <pre><code>import { formatar, limpar } from 'mascaras-br';
+
+formatar('12345678909', 'cpf');      // '123.456.789-09'
+formatar('12abc34501de35', 'cnpj');  // '12.ABC.345/01DE-35'
+limpar('R$ 1.234,56', 'moeda');      // '1234.56'</code></pre>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Tudo roda no seu navegador. Código aberto no <a href="https://github.com/micdog22/mascaras-br">GitHub</a> · Licença MIT</p>
+  </footer>
+</body>
+</html>
